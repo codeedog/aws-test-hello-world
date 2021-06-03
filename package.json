@@ -8,7 +8,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "deploy": "npx cdk deploy"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.107.0",
@@ -21,6 +22,7 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
+    "@aws-cdk/aws-lambda": "^1.107.0",
     "@aws-cdk/core": "1.107.0",
     "source-map-support": "^0.5.16"
   }

@@ -1,3 +1,5 @@
-exports.handler = (event: unknown, context: unknown, callback: any) => {
+"use strict";
+
+exports.handler = (event, context, callback) => {
     callback(null, "Hello World!");
 };

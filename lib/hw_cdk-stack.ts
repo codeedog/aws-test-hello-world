@@ -11,7 +11,7 @@ export class HwCdkStack extends cdk.Stack {
       handler: "index.handler",
       runtime: lambda.Runtime.NODEJS_12_X,
       description:
-      "This Lambda Function returns the message: 'Hello World!' in the response body",
+      "This Lambda Function returns the message: 'Hello World!' in the response body, probably so.",
     });
   }
 }

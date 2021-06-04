@@ -15,6 +15,4 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 ![example workflow](https://github.com/codeedog/aws-test-hello-world/actions/workflows/github-actions-demo.yml/badge.svg)
 
-[![example workflow](https://github.com/codeedog/aws-test-hello-world/actions/workflows/github-actions-demo.yml/badge.svg)](https://github.com/codeedog/aws-test-hello-world/actions)
-
-[![example workflow](https://github.com/codeedog/aws-test-hello-world/actions/workflows/github-actions-demo/badge.svg)](https://github.com/codeedog/aws-test-hello-world/actions)
+![example workflow](https://github.com/codeedog/aws-test-hello-world/actions/workflows/github-actions-demo.yml/badge.svg "Github actions build status")

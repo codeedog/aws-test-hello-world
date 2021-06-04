@@ -54,6 +54,11 @@ jobs:
 #          gatsby build
 #          popd
 
+# For monorepo, this could drop into subdirectory to build the lambda + layer(s)
+      - name: Build Lambda et al
+        run: |
+          npm ci
+
       - name: Synth CDK
 #        run: |
 #          ./gradlew cdkPrepare

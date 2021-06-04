@@ -14,3 +14,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
  * `cdk synth`       emits the synthesized CloudFormation template
 
 ![Github-actions-demo](https://github.com/codeedog/workflows/github-actions-demo/badge.svg)
+
+![example workflow](https://github.com/codeedog/aws-test-hello-world/workflows/github-actions-demo.yml/badge.svg)
+
+![example workflow](https://github.com/codeedog/aws-test-hello-world/workflows/github-actions-demo/badge.svg)

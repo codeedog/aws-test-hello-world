@@ -13,4 +13,5 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
 
+![Github-actions-demo](https://github.com/codeedog/workflows/deploy-lambda/badge.svg)
 ![Github-actions-demo](https://github.com/codeedog/workflows/github-actions-demo/badge.svg)

@@ -28,8 +28,7 @@ jobs:
 
       - name: Install CDK
         run: |
-          alias cdk ./node_modules/.bin/cdk
-          cdk --version
+          alias cdk=./node_modules/.bin/cdk
 #          npm install -g aws-cdk@1.107.0
 #
 #      - name: Set up JDK 1.11
@@ -68,6 +67,7 @@ jobs:
 #          --app 'java -jar ./infrastructure/build/cdk/infrastructure-all.jar -apiLambdaPath ./infrastructure/build/cdk/api-lambdas.zip -lambdaEdge ./infrastructure/build/cdk/lambdaEdge -domainName johntipper.org -region ${{ secrets.AWS_REGION }} -targetAccount ${{ secrets.AWS_TARGET_ACCOUNT }}' \
 #          --output build/cdk.out
         run: |
+          cdk --version
           cdk synth --output ./dist/lambda/cdk.out
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}

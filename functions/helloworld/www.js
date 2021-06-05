@@ -3,14 +3,14 @@ const axios = require('axios').default;
 
 //import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
 
+const musicUri = 'https://ze4zxzq75e.execute-api.us-east-2.amazonaws.com/Prod/api/music';
+
 //export async function wwwHandler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
 exports.handler = async (event, context) => {
-  
+  let res = await axios.get(musicUri, {});
+
   return {
-    body: 'Hello from the hello world Lambda Function',
+    body: JSON.stringify({ hwl: res.data }),
     statusCode: 200,
   };
 }
-
-// https://ze4zxzq75e.execute-api.us-east-2.amazonaws.com/Prod/api/music
-// let res = await axios.post(webhookUri, {});

@@ -16,7 +16,7 @@ export class HwCdkStack extends cdk.Stack {
       //code: lambda.Code.fromAsset("functions/helloworld"),
       code: lambda.Code.fromAsset(path.resolve('functions', 'helloworld')),
       handler: "index.handler",
-      runtime: lambda.Runtime.NODEJS_12_X,
+      runtime: lambda.Runtime.NODEJS_14_X,
       description:
       "This Lambda Function returns the message: 'Hello World!' in the response body, probably so.",
     });
@@ -25,7 +25,7 @@ export class HwCdkStack extends cdk.Stack {
       //code: lambda.Code.fromAsset("functions/helloworld"),
       code: lambda.Code.fromAsset(path.resolve('functions', 'helloworld')),
       handler: "www.handler",
-      runtime: lambda.Runtime.NODEJS_12_X,
+      runtime: lambda.Runtime.NODEJS_14_X,
       description: "For calls into the API Gateway, respond with this.",
     });
 

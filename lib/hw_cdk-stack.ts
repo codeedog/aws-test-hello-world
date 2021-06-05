@@ -1,6 +1,7 @@
 import * as apigw from '@aws-cdk/aws-apigateway';
 import * as cdk from "@aws-cdk/core";
 import * as lambda from "@aws-cdk/aws-lambda";
+import * as lambdaNjs from "@aws-cdk/aws-lambda-nodejs";
 import * as path from 'path';
 
 export class HwCdkStack extends cdk.Stack {
@@ -21,12 +22,14 @@ export class HwCdkStack extends cdk.Stack {
       "This Lambda Function returns the message: 'Hello World!' in the response body, probably so.",
     });
 
-    const wwwFunction = new lambda.Function(this, "wwwFunction", {
+    const wwwFunction = new lambdaNjs.NodejsFunction(this, "wwwFunction", {
       //code: lambda.Code.fromAsset("functions/helloworld"),
-      code: lambda.Code.fromAsset(path.resolve('functions', 'helloworld')),
-      handler: "www.handler",
+      //code: lambda.Code.fromAsset(path.resolve('functions', 'helloworld')),
+      entry: path.resolve('functions', 'helloworld', 'www.js'),
+      handler: "handler",
       runtime: lambda.Runtime.NODEJS_14_X,
       description: "For calls into the API Gateway, respond with this.",
+      bundling: { nodeModules: [ 'axios' ], },
     });
 
     // An API Gateway to make the Lambda web-accessible

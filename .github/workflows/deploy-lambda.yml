@@ -67,7 +67,7 @@ jobs:
 #          --app 'java -jar ./infrastructure/build/cdk/infrastructure-all.jar -apiLambdaPath ./infrastructure/build/cdk/api-lambdas.zip -lambdaEdge ./infrastructure/build/cdk/lambdaEdge -domainName johntipper.org -region ${{ secrets.AWS_REGION }} -targetAccount ${{ secrets.AWS_TARGET_ACCOUNT }}' \
 #          --output build/cdk.out
         run: |
-          ls -a ./.bin
+          ls -a ./node_modules/.bin
           ls -a ./node_modules
           cdk --version
           cdk synth --output ./dist/lambda/cdk.out

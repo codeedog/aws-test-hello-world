@@ -28,6 +28,7 @@ jobs:
 
       - name: Install CDK
         run: |
+          shopt -s expand_aliases
           alias cdk=./node_modules/.bin/cdk
 #          npm install -g aws-cdk@1.107.0
 #

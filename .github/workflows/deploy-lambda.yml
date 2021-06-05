@@ -58,9 +58,12 @@ jobs:
 #          popd
 
 # For monorepo, this could drop into subdirectory to build the lambda + layer(s)
+# Install modules at the top level for running the build/deploy (CDK)
+# Remember to install modules at in the layer directory for packaging
       - name: Build Lambda et al
         run: |
           npm ci
+          (cd layers/hworld/nodejs && npm i --only=production)
 
 # Step not required. Used for debugging.
       - name: Synth CDK

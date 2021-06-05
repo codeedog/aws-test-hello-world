@@ -1,0 +1,15 @@
+This file could be hand created. However, I copied it from the last time
+the system created a cache file for the original function that included
+the node_modules. Point being, the package.json file could originate from
+numerous sources:
+ 1. By hand
+ 2. Automatically, from an esbuild within cdk synth/deploy
+ 3. Automatically, from a docker build within cdk synth/deploy
+ 4. Automatically, from a webpack build (modified nx/monorepo style)
+
+***VERY IMPORTANT***
+
+File must be in a directory structure matching the final structure expected
+for layer deployment. Specifically, **/nodejs/node_modules/**. CDK code that
+gobbles up this directory does not automatically place node_modules into the
+correct structure.

@@ -62,6 +62,7 @@ jobs:
         run: |
           npm ci
 
+# Step not required. Used for debugging.
       - name: Synth CDK
 #        run: |
 #          ./gradlew cdkPrepare

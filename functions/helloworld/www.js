@@ -3,11 +3,11 @@ const axios = require('axios').default;
 
 //import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
 
-const musicUri = 'https://ze4zxzq75e.execute-api.us-east-2.amazonaws.com/Prod/api/music';
+const cowsay = 'https://cowsay.morecode.org/say?message=moo&format=html';
 
 //export async function wwwHandler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
 exports.handler = async (event, context) => {
-  let res = await axios.get(musicUri, {});
+  let res = await axios.get(cowsay, {});
 
   return {
     body: JSON.stringify({ hwl: res.data }),

@@ -1,5 +1,10 @@
 {
+  "name": "hw_lambda_layer",
+  "version": "0.1.0",
+  "scripts": {},
+  "devDependencies": {},
   "dependencies": {
+    "follow-redirects": "^1.14.1",
     "axios": "^0.21.1"
   }
 }

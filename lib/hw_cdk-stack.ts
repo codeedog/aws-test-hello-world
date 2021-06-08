@@ -19,8 +19,7 @@ export class HwCdkStack extends cdk.Stack {
       code: lambda.Code.fromAsset(path.resolve('functions', 'helloworld', 'stubby')),
       handler: "index.handler",
       runtime: lambda.Runtime.NODEJS_14_X,
-      description:
-      "This Lambda Function returns the message: 'Hello World!' in the response body, probably so.",
+      description: "Example 1: simplest function",
     });
 
 
@@ -30,7 +29,7 @@ export class HwCdkStack extends cdk.Stack {
       entry: path.resolve('functions', 'helloworld', 'www.js'),
       handler: "handler",
       runtime: lambda.Runtime.NODEJS_14_X,
-      description: "For calls into the API Gateway, respond with this.",
+      description: "Example 2: function with node_modules",
       bundling: { nodeModules: [
         'follow-redirects',  // Make this explicit to force package.json inclusion
         'axios'
@@ -52,7 +51,7 @@ export class HwCdkStack extends cdk.Stack {
         lambda.Runtime.NODEJS_12_X,
         lambda.Runtime.NODEJS_14_X,
       ],
-      description: "Layer containing axios module used by www.handler",
+      description: "Layer containing axios module used by www2.handler",
     })
 
     // Create the Function
@@ -62,7 +61,7 @@ export class HwCdkStack extends cdk.Stack {
       entry: path.resolve('functions', 'helloworld', 'www2.js'),
       handler: "cowsay",
       runtime: lambda.Runtime.NODEJS_14_X,
-      description: "For calls into the API Gateway, respond with this. Use a LAYER.",
+      description: "Example 3: function using layer (no node modules)",
       layers: [ layer ],
       bundling: { externalModules: [ 'axios' ], },
     });

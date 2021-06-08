@@ -16,7 +16,7 @@ export class HwCdkStack extends cdk.Stack {
     // Make an isolated function into a Lambda Function
     const helloWorldFunction = new lambda.Function(this, "HelloWorldFunction", {
       //code: lambda.Code.fromAsset("functions/helloworld"),
-      code: lambda.Code.fromAsset(path.resolve('functions', 'helloworld')),
+      code: lambda.Code.fromAsset(path.resolve('functions', 'helloworld', 'stubby')),
       handler: "index.handler",
       runtime: lambda.Runtime.NODEJS_14_X,
       description:
@@ -31,7 +31,10 @@ export class HwCdkStack extends cdk.Stack {
       handler: "handler",
       runtime: lambda.Runtime.NODEJS_14_X,
       description: "For calls into the API Gateway, respond with this.",
-      bundling: { nodeModules: [ 'axios' ], },
+      bundling: { nodeModules: [
+        'follow-redirects',  // Make this explicit to force package.json inclusion
+        'axios'
+      ], },
     });
 
 
@@ -55,9 +58,9 @@ export class HwCdkStack extends cdk.Stack {
     // Create the Function
     // Note the inclusion of layer here and bundling used to *exclude*
     // modules that are 'require'd in the code and provided by the layer.
-    const wwwFunction_2 = new lambdaNjs.NodejsFunction(this, "wwwFunction_2", {
-      entry: path.resolve('functions', 'helloworld', 'www.js'),
-      handler: "handler",
+    const wwwCowsay = new lambdaNjs.NodejsFunction(this, "wwwCowsay", {
+      entry: path.resolve('functions', 'helloworld', 'www2.js'),
+      handler: "cowsay",
       runtime: lambda.Runtime.NODEJS_14_X,
       description: "For calls into the API Gateway, respond with this. Use a LAYER.",
       layers: [ layer ],
@@ -69,7 +72,7 @@ export class HwCdkStack extends cdk.Stack {
     // An API Gateway to make the Lambda web-accessible
     const gw = new apigw.LambdaRestApi(this, 'Gateway', {
       description: 'Endpoint for a simple Lambda-powered web service',
-      handler: wwwFunction_2,
+      handler: wwwCowsay,
     });
 
     this.urlOutput = new cdk.CfnOutput(this, 'Url', {

@@ -1,6 +1,4 @@
 "use strict";
-
-const follow = require('follow-redirects');
 const axios = require('axios').default;
 
 //import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
@@ -8,7 +6,7 @@ const axios = require('axios').default;
 const cowsay = 'https://cowsay.morecode.org/say?message=moo&format=html';
 
 //export async function wwwHandler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
-exports.handler = async (event, context) => {
+exports.cowsay = async (event, context) => {
   let res = await axios.get(cowsay, {});
 
   return {

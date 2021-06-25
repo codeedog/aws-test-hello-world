@@ -29,7 +29,7 @@
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "follow-redirects": "^1.14.1",
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "follow-redirects": "^1.14.1"
   }
 }

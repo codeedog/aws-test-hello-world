@@ -18,8 +18,8 @@ jobs:
           node-version: '14.17.0'
 
 # Using same npm on local and build machines
-    - name: npm 7.17.0
-      run: npm i -g npm@7.17.0 --registry=https://registry.npmjs.org
+      - name: npm 7.17.0
+        run: npm i -g npm@7.17.0 --registry=https://registry.npmjs.org
 
 #      - name: Cache Node.js modules
 #        uses: actions/cache@v2

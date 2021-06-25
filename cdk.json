@@ -1,5 +1,6 @@
 {
   "app": "npx ts-node --prefer-ts-exts bin/hw_cdk.ts",
+  "versionReporting": false,
   "requireApproval": "any-change",
   "context": {
     "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": true,

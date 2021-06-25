@@ -9,7 +9,8 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
-    "deploy": "npx cdk deploy"
+    "deploy": "npx cdk deploy",
+    "postinstall": "cd layers/hworld/nodejs && npm ci --only=production"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.110.0",

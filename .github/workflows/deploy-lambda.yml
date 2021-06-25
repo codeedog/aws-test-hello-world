@@ -65,12 +65,6 @@ jobs:
           npm ci
           (cd layers/hworld/nodejs && npm ci --only=production)
 
-# Debugging rebuild on no-change deploy
-      - name: Diff CDK
-        run: |
-          npx hash-files -f '["layers/hworld/nodejs/node_modules/**"]'
-          npx hash-files -f '["node_modules/**"]'
-
 # Step not required. Used for debugging.
       - name: Synth CDK
 #        run: |
@@ -85,6 +79,13 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+# Debugging rebuild on no-change deploy
+      - name: Hash Outputs
+        run: |
+          find cdk.out -exec md5 '{}' \;
+          npx hash-files -f '["layers/hworld/nodejs/node_modules/**"]'
+          npx hash-files -f '["node_modules/**"]'
 
 # Debugging rebuild on no-change deploy
       - name: Diff CDK

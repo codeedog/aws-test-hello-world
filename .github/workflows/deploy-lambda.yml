@@ -84,7 +84,7 @@ jobs:
 # Debugging rebuild on no-change deploy
       - name: Hash Outputs
         run: |
-          find ./dist/lambda/cdk.out -exec md5 '{}' \;
+          find ./dist/lambda/cdk.out -exec md5sum '{}' \;
           npx hash-files -f '["layers/hworld/nodejs/node_modules/**"]'
           npx hash-files -f '["node_modules/**"]'
 

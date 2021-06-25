@@ -63,7 +63,8 @@ jobs:
       - name: Build Lambda et al
         run: |
           npm ci
-          (cd layers/hworld/nodejs && npm ci --only=production)
+
+# Run in package.json as postinstall ==>  (cd layers/hworld/nodejs && npm ci --only=production)
 
 # Step not required. Used for debugging.
       - name: Synth CDK
@@ -83,7 +84,7 @@ jobs:
 # Debugging rebuild on no-change deploy
       - name: Hash Outputs
         run: |
-          find cdk.out -exec md5 '{}' \;
+          find ./dist/lambda/cdk.out -exec md5 '{}' \;
           npx hash-files -f '["layers/hworld/nodejs/node_modules/**"]'
           npx hash-files -f '["node_modules/**"]'
 

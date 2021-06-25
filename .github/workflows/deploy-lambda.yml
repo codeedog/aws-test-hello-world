@@ -62,7 +62,12 @@ jobs:
 # Remember to install modules at in the layer directory for packaging
       - name: Build Lambda et al
         run: |
+          node --version
+          npm --version
           npm ci
+          node --version
+          npm --version
+          ./node_modules/.bin/cdk --version
 
 # Run in package.json as postinstall ==>  (cd layers/hworld/nodejs && npm ci --only=production)
 
@@ -74,7 +79,6 @@ jobs:
 #          --app 'java -jar ./infrastructure/build/cdk/infrastructure-all.jar -apiLambdaPath ./infrastructure/build/cdk/api-lambdas.zip -lambdaEdge ./infrastructure/build/cdk/lambdaEdge -domainName johntipper.org -region ${{ secrets.AWS_REGION }} -targetAccount ${{ secrets.AWS_TARGET_ACCOUNT }}' \
 #          --output build/cdk.out
         run: |
-          ./node_modules/.bin/cdk --version
           ./node_modules/.bin/cdk synth --output ./dist/lambda/cdk.out
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
